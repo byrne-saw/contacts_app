@@ -1,12 +1,24 @@
 class Api::ContactsController < ApplicationController
 
-  def first_contact_action
-    @contact = Contact.first
-    render 'first_contact.json.jbuilder'
+  def index
+    @contacts = Contact.all 
+    render 'index.json.jbuilder'
   end
 
-  def many_contacts_action
-    @contacts = Contact.all 
-    render 'many_contacts.json.jbuilder'
+  def create
+    @contact = Contact.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      phone_number: params[:phone_number]
+      )
+    render 'show.json.jbuilder'
+    @contact.save
   end
+
+  def show
+    @contact = Contact.first
+    render 'show.json.jbuilder'
+  end
+
 end
