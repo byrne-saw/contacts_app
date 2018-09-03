@@ -12,12 +12,12 @@ class Api::ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number]
       )
+    @contact.save    
     render 'show.json.jbuilder'
-    @contact.save
-  end
+ end
 
   def show
-    @contact = Contact.first
+    @contact = Contact.find(params[:id])
     render 'show.json.jbuilder'
   end
 
