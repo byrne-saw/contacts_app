@@ -1,4 +1,4 @@
-class Api::ContactsController < ApplicationController
+mclass Api::ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all 
