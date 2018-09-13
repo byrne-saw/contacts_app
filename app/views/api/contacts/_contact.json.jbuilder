@@ -12,3 +12,5 @@ json.formated do
   json.message "testing how this looks"
   json.japanese_phone contact.japanese_prefix
 end
+
+json.current_user current_user
