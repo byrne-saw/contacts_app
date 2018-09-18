@@ -9,8 +9,10 @@ json.bio contact.bio
 
 json.formated do
   json.updated_at  contact.friendly_updated_at
-  json.message "testing how this looks"
+
   json.japanese_phone contact.japanese_prefix
 end
 
-json.current_user current_user
+json.groups do
+  json.array! contact.groups, partial: "api/groups/group", as: :group
+end
